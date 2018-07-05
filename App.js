@@ -3,7 +3,8 @@ import { StyleSheet, Text, View,
    Button,
    TouchableWithoutFeedback,
    Image,
-   FlatList 
+   FlatList,
+   ScrollView 
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
@@ -61,7 +62,15 @@ class RecipeScreen extends React.Component{
     const {navigation} = this.props
     const recipe = navigation.getParam('recipeName', 'default')
     return(
-      <View></View>
+      <ScrollView contentContainerStyle={{
+        flexGrow: 1,
+      }}>
+        <View style={styles.recipeImage}>
+          <Image style={styles.image} resizeMode="stretch" source={require('./img/mug-cake.jpg')}/>
+        </View>
+        <View style={styles.recipeIngredients}></View>
+        <View style={styles.recipeSteps}></View>
+      </ScrollView>
     );
   }
 }
@@ -88,5 +97,21 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     height: 44,
+  },
+  image: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+  },
+  recipeImage: {
+    flex: 1,
+  },
+  recipeIngredients: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+  recipeSteps: {
+    flex: 1,
+    backgroundColor: 'blue',
   },
 });
