@@ -5,8 +5,7 @@ import { StyleSheet, Text, View,
    Image,
    FlatList,
    ScrollView,
-   Dimensions,
-   Row 
+   Dimensions
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
@@ -28,12 +27,17 @@ class HomeScreen extends React.Component {
   render(){
     return(
       <View style={styles.container}>
-        <FlatList 
+        <FlatList
+          ItemSeparatorComponent={() => (
+            <View style={ styles.itemSeparator }>
+
+            </View>
+          )}
           data={[
-            {key: 'Recipe 1'},
-            {key: 'Recipe 2'},
-            {key: 'Recipe 3'},
-            {key: 'Recipe 4'},
+            {key: 'Muffin in a Mug'},
+            {key: 'Simple Tuna Salad'},
+            {key: 'Omelette in a mug'},
+            {key: ''},
             {key: 'Recipe 5'},
             {key: 'Recipe 6'},
             {key: 'Recipe 7'},
@@ -45,6 +49,7 @@ class HomeScreen extends React.Component {
           )}>
             <View>
               <Text style={styles.item}>{item.key}</Text>
+              
             </View>
           </TouchableWithoutFeedback>}
         />
@@ -64,14 +69,8 @@ class RecipeScreen extends React.Component{
     const {navigation} = this.props
     const recipe = navigation.getParam('recipeName', 'default')
     const data = require('./db.json')
-    const ingredients = []
     const screenHeight = Dimensions.get('window').height
-    
-    for(x in data.Recipe1.Steps){
-      ingredients.push(
-        <Text>{ data.Recipe1.Steps[x] }</Text>
-      )
-    }
+ 
     return(
       <ScrollView  style={{height: screenHeight}} contentContainerStyle={{
         flexGrow: 1,
@@ -81,13 +80,20 @@ class RecipeScreen extends React.Component{
         </View>
         <View style={{ flexDirection: 'column', flex: 1, }}>
           <View style={styles.scrolItem}>
-            { data.Recipe1.Ingredients.map((item, key) =>(
-              <Text key={ key }>{ item }</Text>
+            { data[recipe].Ingredients.map((item, key) =>(
+              <View key={ key } style={{flexDirection: 'row'}}>
+                <Text>{"\u2022 "}</Text>
+                <Text style={{flex:1, paddingLeft:5}}>{ item }</Text>
+              </View>
             )) }
           </View>
+          <View style={ styles.itemSeparator }></View>
           <View style={styles.scrolItem}>
-            { data.Recipe1.Steps.map((item, key) =>(
-              <Text key={ key }>{ item }</Text>
+            { data[recipe].Steps.map((item, key) =>(
+              <View key={ key } style={{flexDirection: 'row'}}>
+                <Text>{"\u2022 "}</Text>
+                <Text style={{flex:1, paddingLeft:5}}>{ item + "\n" }</Text>
+              </View>
             )) }
           </View>
         </View>
@@ -121,6 +127,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     height: 44,
   },
+  itemSeparator: {
+    height: 1,
+    width: "100%",
+    backgroundColor: "#ced0ce",
+  },
   image: {
     flex: 1,
     width: undefined,
@@ -128,16 +139,10 @@ const styles = StyleSheet.create({
   },
   recipeImage: {
     flex: 1,
-    justifyContent: 'space-between',
     height: sH/3,
   },
   scrolItem: {
-    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    padding: 10,
   },
-  // recipeIngredients: {
-  //   flex: 1,
-  // },
-  // recipeSteps: {
-  //   flex: 1,
-  // },
 });
