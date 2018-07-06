@@ -4,7 +4,9 @@ import { StyleSheet, Text, View,
    TouchableWithoutFeedback,
    Image,
    FlatList,
-   ScrollView 
+   ScrollView,
+   Dimensions,
+   Row 
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
@@ -61,19 +63,40 @@ class RecipeScreen extends React.Component{
   render(){
     const {navigation} = this.props
     const recipe = navigation.getParam('recipeName', 'default')
+    const data = require('./db.json')
+    const ingredients = []
+    const screenHeight = Dimensions.get('window').height
+    
+    for(x in data.Recipe1.Steps){
+      ingredients.push(
+        <Text>{ data.Recipe1.Steps[x] }</Text>
+      )
+    }
     return(
-      <ScrollView contentContainerStyle={{
+      <ScrollView  style={{height: screenHeight}} contentContainerStyle={{
         flexGrow: 1,
       }}>
         <View style={styles.recipeImage}>
           <Image style={styles.image} resizeMode="stretch" source={require('./img/mug-cake.jpg')}/>
         </View>
-        <View style={styles.recipeIngredients}></View>
-        <View style={styles.recipeSteps}></View>
+        <View style={{ flexDirection: 'column', flex: 1, }}>
+          <View style={styles.scrolItem}>
+            { data.Recipe1.Ingredients.map((item, key) =>(
+              <Text key={ key }>{ item }</Text>
+            )) }
+          </View>
+          <View style={styles.scrolItem}>
+            { data.Recipe1.Steps.map((item, key) =>(
+              <Text key={ key }>{ item }</Text>
+            )) }
+          </View>
+        </View>
       </ScrollView>
     );
   }
 }
+
+let sH = Dimensions.get('window').height
 
 const RootStack = createStackNavigator(
   {
@@ -105,13 +128,16 @@ const styles = StyleSheet.create({
   },
   recipeImage: {
     flex: 1,
+    justifyContent: 'space-between',
+    height: sH/3,
   },
-  recipeIngredients: {
-    flex: 1,
-    backgroundColor: 'red',
+  scrolItem: {
+    justifyContent: 'space-between',
   },
-  recipeSteps: {
-    flex: 1,
-    backgroundColor: 'blue',
-  },
+  // recipeIngredients: {
+  //   flex: 1,
+  // },
+  // recipeSteps: {
+  //   flex: 1,
+  // },
 });
