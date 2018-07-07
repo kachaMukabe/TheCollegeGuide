@@ -28,7 +28,7 @@
       "(Optional) If making a sandwich, spread some mustard on both sides of a bun. Add the tuna, a slice of cheese and a lettuce leaf."
     ]
   }, 
-  "Omelette in a mug": {
+  "Omelette in a Mug": {
     "Ingredients":[
       "1 teaspoon Land O Lakes® Butter with Canola Oil",
       "2 large Land O Lakes® Eggs",
@@ -45,12 +45,94 @@
       "Microwave 1 minute. Sprinkle with desired toppings. Microwave 30-60 seconds or until egg is cooked through. Season with salt and pepper, if desired."
     ]
   }, 
-  "": {
+  "Ramen in a Mug": {
     "Ingredients":[
-      
+      "1 cup water mixed with noodles flavour sachet",
+      "A few strands of Ramen Noodles (¼ portion)",
+      "2 tablespoons frozen mixed vegetables",
+      "2 teaspoons soy sauce",
+      "½ teaspoons chili sauce",
+      "1 tablespoon spring onions, sliced"
     ],
     "Steps":[
-      
+      "In a large microwavable mug add in all of your ingredients. Break the noodles so they fit in the mug.",
+      "Microwave for 2-2 ½ minutes or until the noodles are tender. The timing might vary based on microwave.",
+      "Serve hot from the microwave. Feel free to add more chili sauce, sesame seeds or any flavors you like."
+    ]
+  },
+  "French Toast in a Mug": {
+    "Ingredients":[
+      "1 egg",
+      "5 tablespoons milk",
+      "5 tablespoons white bread , cubed (roughly 1 slice bread)",
+      "3 tablespoons grated cheddar",
+      "3 tablespoon cooked ham",
+      "Salt and pepper to taste"
+    ],
+    "Steps":[
+      "In a microwave safe mug, mix together the egg and milk.",
+      "Add the bread, ham, cheese and salt and pepper. Stir until combined.",
+      "Let it stand for 5 minutes for the bread to soak up the custard. Press it down so the bread is submerged within the liquid.",
+      "Microwave for roughly 1½ - 2 minutes. Check it after 1 minute and go from there. The timing might vary based on microwave.",
+      "Serve straight away while still warm."
+    ]
+  },
+  "Brownie in a Mug":{
+    "Ingredients":[
+      "3 tablespoons all purpose flour",
+      "3 tablespoons brown sugar",
+      "3 tablespoons Cocoa Powder",
+      "3 tablespoons flavorless oil (canola oil/coconut oil/sunflower oil)",
+      "3 tablespoons water",
+      "pinch of salt",
+      "1 ⁄2 teaspoon vanilla extract",
+      "2 tsp chocolate chips"
+    ],
+    "Steps":[
+      "In a microwavable mug (roughly 1 cup measurement) mix together all of the ingredients.",
+      "Mix in the chocolate chips.",
+      "If you don’t want to cook them off straight away, then place them in the refrigerator for up to 24 hours.",
+      "Microwave for 45-60 seconds. (Timing is based on my 1200W microwave so your timing might vary). Allow to cool for at least 5 minutes.",
+      "Serve warm with vanilla ice cream & enjoy!"
+    ],
+    "imageName": "brownie.jpg"
+  },
+  "Mac n Cheese in a Mug": {
+    "Ingredients":[
+      "⅓ cup (28g/1oz) pasta",
+      "¾ cup (175ml/6fl oz) water, cold",
+      "4 tablespoons milk",
+      "¼ teaspoons cornstarch (aka cornflour)",
+      "4 tablespoons cheddar cheese , grated",
+      "salt and pepper"
+    ],
+    "Steps":[
+      "In a large microwavable mug or large bowl add in the macaroni and the water. You need a large mug as the water will boil up.",
+      "Microwave for roughly 3 ½ minutes. You want the pasta to be fully cooked.",
+      "Pour off the remaining cooking water.",
+      "Stir in the milk, cornstarch and shredded cheese and microwave for a final 60 seconds to create your sauce. Stir well, season with salt and pepper and enjoy."
+    ]
+  },
+  "Pizza in a Mug": {
+    "Ingredients":[
+      "4 tablespoons all purpose flour",
+      "1/8 teaspoon baking powder",
+      "1/16 teaspoon baking soda",
+      "1/8 teaspoon salt",
+      "3 tablespoons milk",
+      "1 tablespoon olive oil",
+      "1 tablespoon marinara sauce",
+      "1 generous tablespoon shredded mozzarella cheese",
+      "5 mini pepperoni",
+      "1/2 teaspoon dried Italian herbs (basil or oregano will work)"
+    ],
+    "Steps":[
+      "Mix the flour, baking powder, baking soda and salt together in a microwavable mug",
+      "Add in the milk and oil with mix together. There might be some lump but that is ok",
+      "Spoon on the marinara sauce and spread it around the surface of the batter",
+      "Sprinkle on the cheese, pepperoni and dried herbs",
+      "Microwave for 1 minute 10-20 seconds, or until it rises up and the topping are bubbling (timing is based on my 1200W microwave so your timing might vary)",
+      "Enjoy straight away!"
     ]
   }
 }

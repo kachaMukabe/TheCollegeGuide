@@ -36,12 +36,12 @@ class HomeScreen extends React.Component {
           data={[
             {key: 'Muffin in a Mug'},
             {key: 'Simple Tuna Salad'},
-            {key: 'Omelette in a mug'},
-            {key: ''},
-            {key: 'Recipe 5'},
-            {key: 'Recipe 6'},
-            {key: 'Recipe 7'},
-            {key: 'Recipe 8'},
+            {key: 'Omelette in a Mug'},
+            {key: 'Ramen in a Mug'},
+            {key: 'French Toast in a Mug'},
+            {key: 'Brownie in a Mug'},
+            {key: 'Mac n Cheese in a Mug'},
+            {key: 'Pizza in a Mug'},
           ]}
           renderItem = {({item}) => <TouchableWithoutFeedback
           onPress={() => this.props.navigation.navigate(
@@ -53,6 +53,9 @@ class HomeScreen extends React.Component {
             </View>
           </TouchableWithoutFeedback>}
         />
+        <View style={{backgroundColor:'skyblue', bottom:-10, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text >The College Guide To Mug Meals</Text>
+        </View>
       </View>
     );
   }
@@ -70,13 +73,23 @@ class RecipeScreen extends React.Component{
     const recipe = navigation.getParam('recipeName', 'default')
     const data = require('./db.json')
     const screenHeight = Dimensions.get('window').height
+    const images = {
+      "Muffin in a Mug": require('./img/mug-cake.jpg'),
+      "Simple Tuna Salad": require('./img/tuna.jpg'),
+      "Omelette in a Mug": require('./img/omelet.jpg'),
+      "Ramen in a Mug": require('./img/ramen.jpg'),
+      "French Toast in a Mug": require('./img/frenchtoast.jpg'),
+      "Brownie in a Mug": require('./img/brownie.jpg'),
+      "Mac n Cheese in a Mug": require('./img/macncheese.jpg'),
+      "Pizza in a Mug": require('./img/pizza.jpg'),
+    }
  
     return(
       <ScrollView  style={{height: screenHeight}} contentContainerStyle={{
         flexGrow: 1,
       }}>
         <View style={styles.recipeImage}>
-          <Image style={styles.image} resizeMode="stretch" source={require('./img/mug-cake.jpg')}/>
+          <Image style={styles.image} resizeMode="stretch" source={ images[recipe] }/>
         </View>
         <View style={{ flexDirection: 'column', flex: 1, }}>
           <View style={styles.scrolItem}>
@@ -102,9 +115,23 @@ class RecipeScreen extends React.Component{
   }
 }
 
+class ModalScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+          title="Dismiss"
+        />
+      </View>
+    );
+  }
+}
+
 let sH = Dimensions.get('window').height
 
-const RootStack = createStackNavigator(
+const MainStack = createStackNavigator(
   {
     Home: HomeScreen,
     Recipe: RecipeScreen,
@@ -114,6 +141,17 @@ const RootStack = createStackNavigator(
     navigationOptions: {
       headerTintColor: '#a459a1',
     },
+  }
+);
+
+const RootStack = createStackNavigator(
+  {
+    Main: MainStack,
+    MyModal: ModalScreen,
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
   }
 );
 
