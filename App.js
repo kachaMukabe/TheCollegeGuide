@@ -16,12 +16,18 @@ export default class App extends React.Component {
 }
 
 class HomeScreen extends React.Component {
-  static navigationOptions={
-    title: 'Home',
-    headerRight:(
-      <Button onPress = {() => alert('This is a message')}
-      title = 'Info' />
-    ),
+  static navigationOptions=({navigation})=>{
+    const params = navigation.state.params || {};
+
+    return {
+      headerRight:(
+        <Button onPress = {() => navigation.navigate('MyModal')}
+        title = 'Info' />
+      ),
+      title: 'Home',
+    };
+    
+    
   };
 
   render(){
@@ -53,7 +59,7 @@ class HomeScreen extends React.Component {
             </View>
           </TouchableWithoutFeedback>}
         />
-        <View style={{backgroundColor:'skyblue', bottom:-10, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{ bottom:0, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text >The College Guide To Mug Meals</Text>
         </View>
       </View>
@@ -119,7 +125,7 @@ class ModalScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+        <Text style={{ fontSize: 30 }}>Info</Text>
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="Dismiss"
